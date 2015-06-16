@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* Jcrop Demo Site CSS - 2014 Tapmodo Interactive LLC - MIT License
+=======
+/* Jcrop Demo Site CSS - 2013 Tapmodo Interactive LLC - MIT License
+>>>>>>> WIP-2.x
    Not required to run Jcrop - contains twitter bootstrap code */
 /*!
  * Bootstrap v2.2.1
@@ -623,6 +627,10 @@ ol.inline > li {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
+<<<<<<< HEAD
+=======
+
+>>>>>>> WIP-2.x
   *zoom: 1;
   padding-left: 5px;
   padding-right: 5px;
@@ -1862,7 +1870,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
+  background-image: url("glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -1885,7 +1893,11 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
+<<<<<<< HEAD
   background-image: url("../img/glyphicons-halflings-white.png");
+=======
+  background-image: url("glyphicons-halflings-white.png");
+>>>>>>> WIP-2.x
 }
 .icon-glass {
   background-position: 0      0;
@@ -5144,15 +5156,16 @@ a.badge:focus {
   margin: 0;
   list-style: none;
   background-color: #f5f5f5;
-  -webkit-border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
 }
 .page-header .breadcrumb li {
   display: inline-block;
+<<<<<<< HEAD
   *display: inline;
   /* IE7 inline-block hack */
   *zoom: 1;
+=======
+>>>>>>> WIP-2.x
   text-shadow: 0 1px 0 #ffffff;
 }
 .page-header .breadcrumb .divider {
@@ -5163,8 +5176,6 @@ a.badge:focus {
   color: #999999;
 }
 .page-header h1 {
-  -webkit-border-radius: 0 0 4px 4px;
-  -moz-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
   background-color: #f8f8f8;
   background-color: #f9f9f9;
@@ -5180,4 +5191,7 @@ a.badge:focus {
 }
 .modal-body {
   max-height: 60%;
+}
+.table.option-list td small {
+  display: block;
 }
