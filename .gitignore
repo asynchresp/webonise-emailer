@@ -1,2 +1,7 @@
 demos/test*
 node_modules
+demos/demo_files
+.DS_Store
+demos/.DS_Store
+.idea
+js/.DS_Store
