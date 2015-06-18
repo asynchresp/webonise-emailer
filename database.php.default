@@ -1,0 +1,50 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: madhavighadge
+ * Date: 6/16/15
+ * Time: 3:50 PM
+ * To change this template use File | Settings | File Templates.
+ */
+class databaseBaseClass{
+
+    public function __construct(){
+        $dbConnect = mysql_connect('localhost','root','webonise6186');
+        if (!$dbConnect) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        mysql_select_db('emailer_db', $dbConnect) or die('Could not select database.');
+
+    }
+
+    public function __destruct(){
+        mysql_close();
+    }
+
+    public function insertRecord($data){
+        $query = "INSERT INTO emailer (`first_name`,`last_name`,`email`,`skype_id`,`profile_img`,`email_body`,`created`) VALUES ('".$data['first_name']."','".$data['last_name']."','".$data['email_address']."','".$data['skype_id']."','".$data['profile_img']."','".$data['email_body']."',NOW())";
+        error_log($query);
+        if(mysql_query($query)){
+            return mysql_insert_id();
+        }else{
+            return false;
+        }
+    }
+
+    public function updateRecord($data){
+        $query = "UPDATE emailer SET `profile_img` = '".$data['profile_img']."' WHERE `id`=".$data['user_id'];
+        if(mysql_query($query)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function selectRecordById($user_id){
+        $query = "Select * FROM emailer where id= ".$user_id;
+        $resultSet = mysql_query($query);
+        $record = mysql_fetch_assoc($resultSet);
+
+       return $record;
+    }
+}
