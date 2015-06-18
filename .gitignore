@@ -1,0 +1,4 @@
+.idea
+.DS_Store
+database.php
+demo_files/*

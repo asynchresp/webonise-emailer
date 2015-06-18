@@ -1,0 +1,34 @@
+form p {
+    float: left;
+    margin-right: 20px;
+}
+
+.clear {
+    clear: both;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+select, input[type="file"] {
+    height: 32px;
+}
+
+input[type="submit"] {
+    background: #6bbd23;
+    color: #fff;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+    background: #222;
+}
+
+h1 img {
+    width: 140px;
+}
