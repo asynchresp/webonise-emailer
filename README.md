@@ -7,4 +7,3 @@ Required Server details
 2) Mysql
 3) ImageMagick
 4) PHP library for Image magick
-
