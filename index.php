@@ -128,7 +128,7 @@ include_once("header.php");
             <div class="span12">
                 <div class="jc-demo-box">
                     <div class="page-header">
-                        <h1><img src="../img/webonise-emailer.png" alt="Webonise Emailer"></h1>
+                        <h1><img src="http://emailers.weboapps.com/webonise-emailer/img/webonise-emailer.png" alt="Webonise Emailer"></h1>
                     </div>
                     <?php if(isset($img_error) && $img_error != ""){
                         echo $img_error;
