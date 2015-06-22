@@ -47,4 +47,12 @@ class databaseBaseClass{
 
        return $record;
     }
+
+    public function getUserDetails($data){
+            $query = "Select * from users where `email` = '".$data['email_address']."' AND `password` = '".md5($data['password'])."'";
+
+            $resultSet = mysql_query($query);
+            $record = mysql_fetch_assoc($resultSet);
+            return $record;
+    }
 }

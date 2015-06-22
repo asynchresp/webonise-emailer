@@ -7,6 +7,6 @@
  * To change this template use File | Settings | File Templates.
  */
 ?>
-<footer><img src="../img/logo.png" alt="logo"></footer>
+<footer><img src="http://emailers.weboapps.com/webonise-emailer/img/logo.png" alt="logo"></footer>
 </body>
 </html>

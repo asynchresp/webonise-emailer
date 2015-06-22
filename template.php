@@ -40,7 +40,7 @@ if(isset($_GET['user_id']) && $_GET['user_id'] !="" && $_GET['user_id'] != null)
 <table cellpadding="0" cellspacing="0" width="600" bgcolor="#84c225" style="font-family:  Arial;border: 1px solid #ccc;">
     <tr style="background:#ffffff; text-align:center">
         <td style="position:relative; text-align:center;">
-            <img src="http://image-jcrop.webonise.com:8080/<?php echo $userData['profile_img']; ?>" alt="" />
+            <img src="http://emailers.weboapps.com/webonise-emailer/<?php echo $userData['profile_img']; ?>" alt="" />
             <h4 style="font-size:18px; margin-top:14px"><?php echo $userData['first_name'].' '.$userData['last_name']; ?></h4>
         </td>
     </tr>

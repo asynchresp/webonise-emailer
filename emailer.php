@@ -129,7 +129,7 @@ include_once("header.php");
             <div class="span12">
                 <div class="jc-demo-box">
                     <div class="page-header">
-                        <h1><img src="../img/webonise-emailer.png" alt="Webonise Emailer"></h1>
+                        <h1><img src="http://emailers.weboapps.com/webonise-emailer/img/webonise-emailer.png" alt="Webonise Emailer"></h1>
                         <p> Welcome <?php echo $_SESSION['userData']['first_name'].' '.$_SESSION['userData']['last_name']; ?> | <a href="logout.php">Log Out</a></p>
                     </div>
                     <?php if(isset($img_error) && $img_error != ""){
