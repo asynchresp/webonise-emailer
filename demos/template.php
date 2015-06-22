@@ -35,7 +35,7 @@ if(isset($_GET['user_id']) && $_GET['user_id'] !="" && $_GET['user_id'] != null)
     </tr>
     <tr style=" background:#ffffff">
         <td style="padding:0 50px 0 50px; background-repeat:no-repeat; color:#666666">
-            <p style="margin-top:30px; font-size:14px;line-height: 20px;">
+            <p style="margin-top:0px; font-size:14px;line-height: 20px;">
                 Hi All,
             </p>
             <?php echo $userData['email_body']; ?>
