@@ -71,5 +71,6 @@ if(isset($_GET['user_id']) && $_GET['user_id'] !="" && $_GET['user_id'] != null)
 <?php
 
 }else{
-    header('Location:index.php');
+    header('Location:emailer.php');
 }
+?>
