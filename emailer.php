@@ -43,6 +43,74 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 }
 
+
+
+// If not a POST request, display page below:
+include_once("header.php");
+
+?>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="jc-demo-box">
+                    <div class="page-header">
+                        <h1><img src="http://emailers.weboapps.com/webonise-emailer/img/webonise-emailer.png" alt="Webonise Emailer"></h1>
+                        <p> Welcome <?php echo $_SESSION['userData']['first_name'].' '.$_SESSION['userData']['last_name']; ?> | <a href="logout.php">Log Out</a></p>
+                    </div>
+                    <?php if(isset($img_error) && $img_error != ""){
+                        echo $img_error;
+                    }
+
+                    if(isset($imgPath) && $imgPath !="" ){
+                    ?>
+                                <!-- This is the image we're attaching Jcrop to -->
+                                <img src="<?php echo $imgPath; ?>" id="cropbox" style="height: 500px; width: 500px; overflow: scroll;" />
+
+                                <!-- This is the form that our event handler fills -->
+                                <form action="emailer.php" method="post" onsubmit="return checkCoords();">
+                                    <input type="hidden" name="user_id" value="<?php echo $userId; ?>">
+
+                                    <input type="hidden" name="imagePath" value="<?php echo $imgPath; ?>">
+                                    <input type="hidden" id="x" name="x" />
+                                    <input type="hidden" id="y" name="y" />
+                                    <input type="hidden" id="w" name="w" />
+                                    <input type="hidden" id="h" name="h" />
+                                    <input type="submit" value="Crop Image" class="btn btn-large btn-inverse" />
+                                </form>
+                        <?php
+                            }else{
+                        ?>
+
+                                <form enctype="multipart/form-data" method="post" action="crop_upload.php">
+                                    <p><label>First name :</label><input type="text" name="first_name" id="first_name" /></p>
+                                    <p><label>Last name :</label><input type="text" name="last_name" id="last_name" /></p>
+                                    <p><label>Email address :</label><input type="text" name="email_address" id="email_address" /></p>
+                                    <p><label>Skype id :</label><input type="text" name="skype_id" id="skype_id" /></p>
+                                    <p><label>Profile picture :</label><input type="file" name="user_img" /></p>
+                                    <div class="clear"></div>
+                                    <p><label>Email content : </label><textarea id="ckeditor" name="email_body" ></textarea></p>
+                                    <div class="clear"></div>
+                                    <input type="submit" name="submit" value="Add">
+                                </form>
+                                <script>
+                                    $( document ).ready( function() {
+                                        $( 'textarea#ckeditor' ).ckeditor();
+                                    } );
+                                </script>
+
+                        <?php
+                            }
+                        ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<?php
+include_once("footer.php");
+}else{
+    header('Location:index.php');
+}
 function getExtention($src){
     $imageExtArray = explode("/",$src);
     $filename = $imageExtArray[count($imageExtArray)-1];
@@ -118,72 +186,5 @@ function resizeThumbnailImage($thumb_image_name, $image, $width, $height, $postD
     }
     chmod($thumb_image_name, 0777);
     return $thumb_image_name;
-}
-
-// If not a POST request, display page below:
-include_once("header.php");
-
-?>
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                <div class="jc-demo-box">
-                    <div class="page-header">
-                        <h1><img src="http://emailers.weboapps.com/webonise-emailer/img/webonise-emailer.png" alt="Webonise Emailer"></h1>
-                        <p> Welcome <?php echo $_SESSION['userData']['first_name'].' '.$_SESSION['userData']['last_name']; ?> | <a href="logout.php">Log Out</a></p>
-                    </div>
-                    <?php if(isset($img_error) && $img_error != ""){
-                        echo $img_error;
-                    }
-
-                    if(isset($imgPath) && $imgPath !="" ){
-                    ?>
-                                <!-- This is the image we're attaching Jcrop to -->
-                                <img src="<?php echo $imgPath; ?>" id="cropbox" style="height: 500px; width: 500px; overflow: scroll;" />
-
-                                <!-- This is the form that our event handler fills -->
-                                <form action="emailer.php" method="post" onsubmit="return checkCoords();">
-                                    <input type="hidden" name="user_id" value="<?php echo $userId; ?>">
-
-                                    <input type="hidden" name="imagePath" value="<?php echo $imgPath; ?>">
-                                    <input type="hidden" id="x" name="x" />
-                                    <input type="hidden" id="y" name="y" />
-                                    <input type="hidden" id="w" name="w" />
-                                    <input type="hidden" id="h" name="h" />
-                                    <input type="submit" value="Crop Image" class="btn btn-large btn-inverse" />
-                                </form>
-                        <?php
-                            }else{
-                        ?>
-
-                                <form enctype="multipart/form-data" method="post" action="crop_upload.php">
-                                    <p><label>First name :</label><input type="text" name="first_name" id="first_name" /></p>
-                                    <p><label>Last name :</label><input type="text" name="last_name" id="last_name" /></p>
-                                    <p><label>Email address :</label><input type="text" name="email_address" id="email_address" /></p>
-                                    <p><label>Skype id :</label><input type="text" name="skype_id" id="skype_id" /></p>
-                                    <p><label>Profile picture :</label><input type="file" name="user_img" /></p>
-                                    <div class="clear"></div>
-                                    <p><label>Email content : </label><textarea id="ckeditor" name="email_body" ></textarea></p>
-                                    <div class="clear"></div>
-                                    <input type="submit" name="submit" value="Add">
-                                </form>
-                                <script>
-                                    $( document ).ready( function() {
-                                        $( 'textarea#ckeditor' ).ckeditor();
-                                    } );
-                                </script>
-
-                        <?php
-                            }
-                        ?>
-
-                </div>
-            </div>
-        </div>
-    </div>
-<?php
-include_once("footer.php");
-}else{
-    header('Location:index.php');
 }
 ?>
